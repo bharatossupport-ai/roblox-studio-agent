@@ -357,6 +357,8 @@ class MainWindow(QMainWindow):
     # --------------------------------------------------------------- modes
     def set_mode(self, mode: str):
         self.mode = mode
+        for b in self.mode_group.buttons():
+            b.setChecked(b.property("mode") == mode)
         hints = {
             "chat": "Ask anything: 'Add a double jump', 'Fix the errors in my shop script', 'Make a day/night cycle'…",
             "game": "Describe the game you want. I'll write a plan first, then build the whole thing in Studio.",
